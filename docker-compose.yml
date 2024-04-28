@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - my-network
+    container_name: redis-youtube
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    ports:
+      - "5540:5540"
+    networks:
+      - my-network
+    container_name: redis-insight-youtube
+
+networks:
+  my-network:
